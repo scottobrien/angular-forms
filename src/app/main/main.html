@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+   <div class="col-xs-12">
+     <h2>
+       Form
+     </h2>
+   </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      
+      <form name="myForm" ng-submit="main.sendInit()" novalidate>
+        <div class="form-group" ng-class="{ 'has-error' : myForm.name.$invalid && main.isInvalid }">
+         <label class="control-label">Name</label>
+         <input type="text"
+                class="form-control"
+                name="name"
+                ng-model="main.name"
+                required>
+         <span  class="text-danger"
+                ng-show="myForm.name.$invalid && myForm.name.$dirty"><small>Please fill in your name</small>
+          </span>
+        </div>
+        <div class="form-group" ng-class="{ 'has-error' : myForm.email.$invalid && main.isInvalid }">
+         <label class="control-label">Email</label>
+         <input type="email"
+                class="form-control"
+                name="email"
+                ng-model="email"
+                ng-model-options="{ updateOn: 'blur' }"
+                email-validation
+                required>
+          <span class="text-danger"
+                ng-show="myForm.email.$invalid && myForm.email.$dirty"><small>Please fill in a valid email</small>
+          </span>
+        </div>
+       <div class="form-group" ng-class="{ 'has-error' : myForm.phone.$invalid && main.isInvalid }">
+         <label class="control-label">Phone Number</label>
+         <input type="text"
+                class="form-control"
+                name="phone"
+                ng-model="phone"
+                phone-format
+                required>
+          <span class="text-danger"
+                ng-show="myForm.phone.$invalid && myForm.phone.$dirty"><small>Please fill in a valid phone number</small>
+          </span>
+       </div>
+       <div class="form-group" ng-class="{ 'has-error' : myForm.password.$invalid && main.isInvalid }">
+         <label class="control-label">Password</label>
+         <input type="password"
+                class="form-control"
+                name="password"
+                ng-model="password"
+                required>
+          <span class="text-danger"
+                ng-show="myForm.password.$invalid && myForm.password.$dirty"><small>Please fill in a valid password</small>
+          </span>
+       </div>
+       <div class="form-group" ng-class="{ 'has-error' : myForm.confirmPassword.$invalid && main.isInvalid }">
+         <label class="control-label">Confirm Password</label>
+         <input type="password"
+                class="form-control"
+                name="confirmPassword"
+                ng-model="confirmPassword"
+                compare-password="password"
+                required>
+          <span class="text-danger"
+                ng-show="myForm.confirmPassword.$invalid && myForm.confirmPassword.$dirty"><small>Password does not match</small>
+          </span>
+       </div>
+        <div class="form-group" ng-show="myForm.$invalid && myForm.$submitted">
+        <span class="text-danger">
+          <small>Please see above</small>
+        </span>
+       </div>
+       <div class="form-group">
+         <button type="submit" class="btn btn-primary">Send</button>
+       </div>
+     </form>
+
+   </div>
+ </div>
+</div>
