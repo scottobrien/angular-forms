@@ -21,6 +21,23 @@
                 ng-show="myForm.name.$invalid && myForm.name.$dirty"><small>Please fill in your name</small>
           </span>
         </div>
+        <div class="form-group" ng-class="{ 'has-error' : myForm.memberId.$invalid && main.isInvalid}">
+         <label class="control-label">Member ID</label>
+         <input type="text"
+                class="form-control"
+                name="memberId"
+                ng-model="main.memberId"
+                minlength="4"
+                maxlength="15"
+                alphanumeric-underscore
+                required>
+         <div  class="text-danger"
+                ng-show="myForm.memberId.$error.minlength"><small>Your Member ID must be 4-15 charcters long</small>
+          </div>
+          <div  class="text-danger"
+                 ng-show="myForm.memberId.$error.memberIdSpecialChar"><small>Member ID must not contain special characters</small>
+           </div>
+        </div>
         <div class="form-group" ng-class="{ 'has-error' : myForm.email.$invalid && main.isInvalid }">
          <label class="control-label">Email</label>
          <input type="email"
@@ -67,6 +84,21 @@
                 required>
           <span class="text-danger"
                 ng-show="myForm.confirmPassword.$invalid && myForm.confirmPassword.$dirty"><small>Password does not match</small>
+          </span>
+       </div>
+       <div class="form-group" ng-class="{ 'has-error' : myForm.specialPassword.$invalid && main.isInvalid }">
+         <label class="control-label">Special Password</label>
+         <input type="text"
+                class="form-control"
+                name="specialPassword"
+                ng-model="specialPassword"
+                ng-model-options="{ updateOn: 'blur' }"
+                minlength="8"
+                maxlength="16"
+                special-password
+                required>
+          <span class="text-danger"
+                ng-show="myForm.specialPassword.$invalid && myForm.specialPassword.$dirty"><small>Password invalid, must be atleast 8-16 characters long, must contain atleast one uppercase letter, atleast one lowercase letter, atleast one number and atleast one special character</small>
           </span>
        </div>
         <div class="form-group" ng-show="myForm.$invalid && myForm.$submitted">

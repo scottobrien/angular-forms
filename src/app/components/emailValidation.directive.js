@@ -1,5 +1,5 @@
 (function() {
-
+  'use strict';
   angular.module('angularStuff').directive('emailValidation', function($log) {
     return {
       require: '?ngModel',

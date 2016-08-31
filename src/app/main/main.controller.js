@@ -6,14 +6,16 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $timeout, $log) {
+  function MainController($scope, $log) {
     var vm = this;
 
     vm.name = '';
+    vm.memberId = '';
     $scope.email = '';
     $scope.phone = '';
     $scope.password = '';
     $scope.confirmPassword = '';
+    $scope.specialCharPassword = '';
 
     vm.isInvalid = false;
 
